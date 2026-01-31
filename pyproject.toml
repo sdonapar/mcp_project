@@ -12,6 +12,7 @@ dependencies = [
     "langchain>=1.2.7",
     "langchain-mcp-adapters>=0.2.1",
     "langchain-openai>=1.1.7",
+    "markdown-pdf>=1.10",
     "pandas>=3.0.0",
     "pyarrow>=23.0.0",
     "streamlit>=1.19.0",
