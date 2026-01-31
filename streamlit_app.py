@@ -12,6 +12,10 @@ dotenv.load_dotenv()
 # Query log file path
 QUERY_LOG_FILE = "logs/query_logs.json"
 
+# Ensure logs directory exists
+os.makedirs(os.path.dirname(QUERY_LOG_FILE), exist_ok=True)
+
+
 def load_query_logs():
     """Load existing query logs from JSON file"""
     if os.path.exists(QUERY_LOG_FILE):

@@ -41,10 +41,15 @@ uv run data/csv_to_parquet.py
 ```
 ├── db_utils_mcp_server.py    # MCP server with database tools
 ├── agent.py                   # LangChain agent using the MCP tools
+├── streamlit_app.py          # Streamlit web application
 ├── main.py                    # Main entry point
 ├── pyproject.toml            # Project configuration
 ├── README.md                 # This file
-└── data/                     # Dataset directory
+├── .env                      # Environment variables (create this file)
+├── .gitignore               # Git ignore file
+├── logs/                    # Logs directory
+│   └── query_logs.json      # Query history and logs
+└── data/                    # Dataset directory
     ├── orders.parquet
     ├── order_items.parquet
     ├── order_item_refunds.parquet
@@ -90,7 +95,7 @@ The agent uses GPT-4o-mini with the MCP tools to answer database queries convers
 
 ### Running the Streamlit Web App
 ```bash
-streamlit run streamlit_app.py
+uv run streamlit run streamlit_app.py
 ```
 
 This launches an interactive web interface where you can:
@@ -109,10 +114,34 @@ This launches an interactive web interface where you can:
 
 ## Configuration
 
-Ensure you have an OpenAI API key set in your environment:
+### Environment Setup
+
+1. Create a `.env` file in the project root directory:
 ```bash
-export OPENAI_API_KEY="your-api-key"
+touch .env
 ```
+
+2. Add your OpenAI API key to the `.env` file:
+```
+OPENAI_API_KEY=sk-your-actual-api-key-here
+```
+
+You can get your API key from: https://platform.openai.com/api-keys
+
+### Logs Directory
+
+The application automatically creates a `logs/` directory to store query logs and other application logs. This directory will be created when you run the Streamlit app for the first time.
+
+### Query Logs
+
+All queries executed through the Streamlit app are automatically saved to `logs/query_logs.json`. This file contains:
+- User queries
+- Agent responses
+- Execution timestamps
+- Success/failure status
+- Error messages (if any)
+
+You can use this data for analysis and debugging.
 
 ## Dependencies
 
