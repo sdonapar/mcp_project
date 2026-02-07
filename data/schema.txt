@@ -1,0 +1,43 @@
+Table: order_items
+Column: order_item_id, Type: int64
+Column: created_at, Type: str
+Column: order_id, Type: int64
+Column: product_id, Type: int64
+Column: is_primary_item, Type: int64
+Column: price_usd, Type: float64
+Column: cogs_usd, Type: float64
+Table: order_item_refunds
+Column: order_item_refund_id, Type: int64
+Column: created_at, Type: str
+Column: order_item_id, Type: int64
+Column: order_id, Type: int64
+Column: refund_amount_usd, Type: float64
+Table: products         
+Column: product_id, Type: int64
+Column: created_at, Type: str
+Column: product_name, Type: str
+(mcp_project) sdonapar@Sasidhars-MacBook-Pro data % uv run python csv_to_parquet.py website_pageviews.csv website_pageviews.parquet
+Column: website_pageview_id, Type: int64
+Column: created_at, Type: str
+Column: website_session_id, Type: int64
+Column: pageview_url, Type: str
+(mcp_project) sdonapar@Sasidhars-MacBook-Pro data % uv run python csv_to_parquet.py website_sessions.csv website_sessions.parquet 
+Column: website_session_id, Type: int64
+Column: created_at, Type: str
+Column: user_id, Type: int64
+Column: is_repeat_session, Type: int64
+Column: utm_source, Type: str
+Column: utm_campaign, Type: str
+Column: utm_content, Type: str
+Column: device_type, Type: str
+Column: http_referer, Type: str
+(mcp_project) sdonapar@Sasidhars-MacBook-Pro data % uv run python csv_to_parquet.py orders.csv orders.parquet          
+Column: order_id, Type: int64
+Column: created_at, Type: str
+Column: website_session_id, Type: int64
+Column: user_id, Type: int64
+Column: primary_product_id, Type: int64
+Column: items_purchased, Type: int64
+Column: price_usd, Type: float64
+Column: cogs_usd, Type: float64
+(mcp_project) sdonapar@Sasidhars-MacBook-Pro data %
